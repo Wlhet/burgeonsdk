@@ -96,7 +96,7 @@ func (bg *BurgeonConnection) Post(comm ...PostData) (string, error) {
 	code := gjson.Get(response, "0.code").Int()
 	errmsg := gjson.Get(response, "0.message").String()
 	if code == 0 {
-		return errmsg, nil
+		return response, nil
 	} else {
 		return errmsg, errors.New(errmsg)
 	}

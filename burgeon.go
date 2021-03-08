@@ -10,6 +10,9 @@ import (
 	"github.com/tidwall/gjson"
 )
 
+var NewVipCardInfo *VipCardConfig
+var BaseConnection *BurgeonConnection
+
 type BurgeonConnection struct {
 	AppId  string
 	AppKey string
@@ -30,6 +33,34 @@ type PostData struct {
 	Id      int                    `json:"id"`
 	Command string                 `json:"command"`
 	Params  map[string]interface{} `json:"params"`
+}
+
+//向外单独提供
+func NewBurgeonConnection(AppId, AppKey, ApiUrl string) *BurgeonConnection {
+	return &BurgeonConnection{
+		AppId:  AppId,
+		AppKey: AppKey,
+		ApiUrl: ApiUrl,
+	}
+}
+
+//用于初始化包内默认连接对象
+func InitBurgeonConnection(AppId, AppKey, ApiUrl string) {
+	BaseConnection = &BurgeonConnection{
+		AppId:  AppId,
+		AppKey: AppKey,
+		ApiUrl: ApiUrl,
+	}
+}
+
+func (bg *BurgeonConnection) InitVipCardConfig(viptype, customer, store, area, validdate string) {
+	NewVipCardInfo = &VipCardConfig{
+		VipType:      viptype,
+		Customer:     customer,
+		Store:        store,
+		IntegralArea: area,
+		ValidDate:    validdate,
+	}
 }
 
 //Burgeon--------------------------------------------------------------------------

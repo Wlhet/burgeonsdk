@@ -11,18 +11,6 @@ const (
 	ApiErrCode  = -1
 )
 
-var NewVipCardInfo *VipCardConfig
-
-func InitVipCardConfig(viptype, customer, store, area, validdate string) {
-	NewVipCardInfo = &VipCardConfig{
-		VipType:      viptype,
-		Customer:     customer,
-		Store:        store,
-		IntegralArea: area,
-		ValidDate:    validdate,
-	}
-}
-
 //获取Vip当前积分
 func (bg *BurgeonConnection) GetVipIntegralByCardNO(card string) (int64, error) {
 	pst := bg.NewQuery()

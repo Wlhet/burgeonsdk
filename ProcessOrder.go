@@ -1,7 +1,7 @@
 package burgeonsdk
 
 func (this *BurgeonConnection) NewProcessOrder() PostData {
-	return PostData{Id: 3, Command: "ProcessOrder", Params: map[string]interface{}{
+	return PostData{Id: 4, Command: "ProcessOrder", Params: map[string]interface{}{
 		"submit":    false,
 		"id":        -1,
 		"masterobj": make(map[string]interface{}),

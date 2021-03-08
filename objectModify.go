@@ -1,7 +1,7 @@
 package burgeonsdk
 
 func (this *BurgeonConnection) NewObjectModify() PostData {
-	return PostData{Id: 2, Command: "ObjectModify", Params: make(map[string]interface{})}
+	return PostData{Id: 3, Command: "ObjectModify", Params: make(map[string]interface{})}
 }
 
 //设置查询的表
